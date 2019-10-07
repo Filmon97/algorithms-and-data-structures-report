@@ -1,0 +1,6 @@
+pytest
+networkx
+sortedcontainers
+jupyter
+matplotlib
+numpy

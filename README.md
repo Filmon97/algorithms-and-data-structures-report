@@ -1,20 +1,50 @@
 # algorithm-and-data-structure-reports
-simple reports that analyze insertion_sort(), search tree, red-black tree, connected componets and MST Prim.
+simple reports that analyze insertion_sort(), search tree, red-black tree, connected components and MST Prim.
 Heavily based on [Introduction to Algorithms Third Edition, published by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein.[CLRS]](https://mitpress.mit.edu/books/introduction-algorithms-third-edition)
 
 ## Installation Guide
-...
+
+Navigate in the **Anaconda Prompt** and select your environment for example:
+`conda activate pyenv`
+
+To download the repository:
+
+`git clone https://github.com/Filmon97/algorithm-and-data-structure-reports.git`
+
+Then you need to install the basic dependencies to run the project on your system:
+`pip install -r requirements.txt`
+
+### Visual Studio Code
+While you are in the **Anaconda Prompt** run:
+`code .`
+to open the project in **Visual Studio Code**
+
+If you want to run the test suite:
+
+`pip install pytest`
+
+Then to run the tests:
+
+`pytest`
 
 # Index of Algorithms
+
 ...
+
 <!-- [`sorting.py`] --->
 | **Name** | **File** | **Tests** | **Notebook**
 |:------------------------------|:--------------------------------|:-----|:---------|
-| `insertion_sort`| [`sorting.py`][sorting]      | TODO | TODO |
+| `insertion_sort`| [`sort.py`][sort]      | TODO | TODO |
+| `quick_sort`| [`sort.py`][sort]      | TODO | TODO |
+
 
 # Index of Data Structure
 ...
 <!-- [`PriorityQueue.py`] --->
 | **Name** | **File** | **Tests** | **Notebook**
 |:------------------------------|:--------------------------------|:-----|:---------|
-| `PriorityQueue`| [PriorityQueue]      | TODO | TODO |
+| `PriorityQueue`| [`graph.py`][graph]      | TODO | TODO |
+
+<!---Reference Links-->
+[sort]:../master/sort.py
+[graph]:../master/graph.py
