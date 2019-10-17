@@ -4,3 +4,4 @@ sortedcontainers
 jupyter
 matplotlib
 numpy
+memory_profiler
