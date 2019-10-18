@@ -226,3 +226,18 @@ class RedBlackTree(BinarySearchTree):
                 r_inorder(v.right)
         r_inorder(self.root)
         return nodes
+    
+    def postorder(self):
+        """Postorder returns an array"""
+        nodes = []
+        def r_postorder(v):
+            """Recursive postorder"""
+            if(v is self.nil):
+                return
+            if(v.left is not self.nil):
+                r_postorder(v.left)
+            if(v.right is not self.nil):
+                r_postorder(v.right)
+            nodes.append(v.key)
+        r_postorder(self.root)
+        return nodes

@@ -45,7 +45,6 @@ gc.enable()
     """.format(n)
     return min(timeit.Timer('insertion_sort(s)', setup=setup).repeat(10, 1))
 
-# FIXME: bad input array
 # The best case for Quicksort
 #  using last element as pivot
 #  is the post-order traversal 
@@ -53,10 +52,14 @@ gc.enable()
 def best_case_quick_sort(n):
     setup = """
 from sort import (quick_sort)
-from utils import (np)
+from utils import (np,gen_random_u_array)
 from tree import (RedBlackTree)
 np.random.seed(31415)
-s = gen_reversed_array({})
+s = gen_random_u_array({})
+balanced_tree = RedBlackTree()
+for i in s:
+    balanced_tree.insert(i)
+s = balanced_tree.postorder()
 gc.enable()
     """.format(n)
     return min(timeit.Timer('quick_sort(s,0,len(s)-1)', setup=setup).repeat(10, 1))
