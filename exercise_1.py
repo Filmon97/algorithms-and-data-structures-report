@@ -35,6 +35,16 @@ gc.enable()
     """.format(n)
     return min(timeit.Timer('insertion_sort(s)', setup=setup).repeat(10, 1))
 
+def avg_case_insertion_sort(n):
+    setup = """
+from sort import (insertion_sort)
+from utils import (np,gen_random_u_array)
+np.random.seed(31415)
+s = gen_random_u_array({})
+gc.enable()
+    """.format(n)
+    return min(timeit.Timer('insertion_sort(s)', setup=setup).repeat(10, 1))
+
 # FIXME: bad input array
 # The best case for Quicksort
 #  using last element as pivot
@@ -43,7 +53,8 @@ gc.enable()
 def best_case_quick_sort(n):
     setup = """
 from sort import (quick_sort)
-from utils import (np,gen_reversed_array)
+from utils import (np)
+from tree import ()
 np.random.seed(31415)
 s = gen_reversed_array({})
 gc.enable()
@@ -82,9 +93,18 @@ def experiment_w_c_i_s():
 
     plot_data(r, times, "worst case insertion sort", "Sorting", "n", "time")
 
+def experiment_a_c_i_s():
+    r = range(100, 2100, 100)
+    times = []
+    for i in r:
+        times.append(avg_case_insertion_sort(i))
+
+    plot_data(r, times, "average case insertion sort", "Sorting", "n", "time")
 
 if __name__ == "__main__":
     experiment_b_c_i_s()
     experiment_b_c_q_s()
     experiment_w_c_i_s()
     experiment_w_c_q_s()
+    
+    experiment_a_c_i_s()
