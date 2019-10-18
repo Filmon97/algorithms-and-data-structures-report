@@ -9,6 +9,7 @@ def worst_case_insertion_sort(n):
     setup = """
 from sort import (insertion_sort)
 from utils import (np,gen_reversed_array)
+np.random.seed(31415)
 s = gen_reversed_array({})
 gc.enable()
     """.format(n)
@@ -18,6 +19,7 @@ def worst_case_quick_sort(n):
     setup = """
 from sort import (quick_sort)
 from utils import (np,gen_sorted_array)
+np.random.seed(31415)
 s = gen_sorted_array({})
 gc.enable()
     """.format(n)
@@ -30,8 +32,8 @@ from utils import (np,gen_sorted_array)
 np.random.seed(31415)
 s = gen_sorted_array({})
 gc.enable()
-    """.format(10_000)
-    return min(timeit.Timer('insertion_sort(s)', setup=setup).repeat(repeat=10, number=1))
+    """.format(n)
+    return min(timeit.Timer('insertion_sort(s)', setup=setup).repeat(10, 1))
 
 # FIXME: bad input array
 # The best case for Quicksort
@@ -45,8 +47,8 @@ from utils import (np,gen_reversed_array)
 np.random.seed(31415)
 s = gen_reversed_array({})
 gc.enable()
-    """.format(10_000)
-    return min(timeit.Timer('quick_sort(s,0,len(s)-1)', setup=setup).repeat(repeat=10, number=1))
+    """.format(n)
+    return min(timeit.Timer('quick_sort(s,0,len(s)-1)', setup=setup).repeat(10, 1))
 
 def experiment_b_c_i_s():
     r = range(100, 2100, 100)
@@ -83,6 +85,6 @@ def experiment_w_c_i_s():
 
 if __name__ == "__main__":
     experiment_b_c_i_s()
-    experiment_w_c_q_s()
+    experiment_b_c_q_s()
     experiment_w_c_i_s()
     experiment_w_c_q_s()

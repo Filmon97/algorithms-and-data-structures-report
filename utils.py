@@ -19,6 +19,11 @@ import timeit
 
 infinity = float('inf')
 
+# set one time the maximum recursion limit
+import sys
+recursion_limit = 100_000
+sys.setrecursionlimit(recursion_limit)
+
 # ______________________________________________________________________________
 """ Array Generation """
 
@@ -48,7 +53,7 @@ def gen_reversed_array(n=100):
     
 def plot_data(x, y, label, title, xlabel, ylabel, save=None):
     """ Plot the experiments, support save functionality """
-    plt.style.use('fivethirtyeight')
+    plt.style.use('seaborn')
     plt.plot(x, y, label=label)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
@@ -63,7 +68,7 @@ def plot_data(x, y, label, title, xlabel, ylabel, save=None):
 #TODO
 def plot_compare(x, y, z, title, xlabel, ylabel, save=None):
     """ Plot the experiments, support save functionality """
-    plt.style.use('fivethirtyeight')
+    plt.style.use('seaborn')
     plt.plot(x, y, label=label)
     plt.plot(x, z)
     plt.xlabel(xlabel)
