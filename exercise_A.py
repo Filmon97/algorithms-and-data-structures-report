@@ -7,7 +7,11 @@
 # TODO:
 # add the experiments
 
-from utils import *
+from utils import (
+    np,
+    timeit,
+    plot_data
+)
 
 ## the np.random.seed(...) is included
 ## in the setup variabile
@@ -35,7 +39,7 @@ gc.enable()
     return min(timeit.Timer('for d in data: rn.insert(d)', setup=setup).repeat(10, 1))
 
 def experiment_i_bst():
-    r = range(100, 2100, 100)
+    r = np.arange(100, 2100, 100)
     times = []
     for i in r:
         times.append(insertion_bst(i))
@@ -43,7 +47,7 @@ def experiment_i_bst():
     plot_data(r, times, "BinarySearchTree", "Insertion", "n", "time")
 
 def experiment_i_rn():
-    r = range(100, 2100, 100)
+    r = np.arange(100, 2100, 100)
     times = []
     for i in r:
         times.append(insertion_rn(i))
