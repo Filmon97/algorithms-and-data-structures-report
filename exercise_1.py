@@ -54,7 +54,7 @@ def best_case_quick_sort(n):
     setup = """
 from sort import (quick_sort)
 from utils import (np)
-from tree import ()
+from tree import (RedBlackTree)
 np.random.seed(31415)
 s = gen_reversed_array({})
 gc.enable()
@@ -106,5 +106,5 @@ if __name__ == "__main__":
     experiment_b_c_q_s()
     experiment_w_c_i_s()
     experiment_w_c_q_s()
-    
+
     experiment_a_c_i_s()
