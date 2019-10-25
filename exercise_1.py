@@ -1,6 +1,6 @@
 from utils import (
     np,
-    timeit,
+    evaluate,
     plot_data
 )
 
@@ -17,7 +17,7 @@ np.random.seed(31415)
 s = gen_reversed_array({})
 gc.enable()
     """.format(n)
-    return min(timeit.Timer('insertion_sort(s)', setup=setup).repeat(10, 1))
+    return evaluate(stmt='insertion_sort(s)', setup=setup, repeat=10)
 
 def worst_case_quick_sort(n):
     setup = """
@@ -27,7 +27,7 @@ np.random.seed(31415)
 s = gen_sorted_array({})
 gc.enable()
     """.format(n)
-    return min(timeit.Timer('quick_sort(s,0,len(s)-1)', setup=setup).repeat(10, 1))
+    return evaluate(stmt='quick_sort(s,0,len(s)-1)', setup=setup, repeat=10)
 
 def best_case_insertion_sort(n):
     setup = """
@@ -37,7 +37,7 @@ np.random.seed(31415)
 s = gen_sorted_array({})
 gc.enable()
     """.format(n)
-    return min(timeit.Timer('insertion_sort(s)', setup=setup).repeat(10, 1))
+    return evaluate(stmt='insertion_sort(s)', setup=setup, repeat=10)
 
 def avg_case_insertion_sort(n):
     setup = """
@@ -47,7 +47,7 @@ np.random.seed(31415)
 s = gen_random_u_array({})
 gc.enable()
     """.format(n)
-    return min(timeit.Timer('insertion_sort(s)', setup=setup).repeat(10, 1))
+    return evaluate(stmt='insertion_sort(s)', setup=setup, repeat=10)
 
 # The best case for Quicksort
 #  using last element as pivot
@@ -66,7 +66,7 @@ for i in s:
 s = balanced_tree.postorder()
 gc.enable()
     """.format(n)
-    return min(timeit.Timer('quick_sort(s,0,len(s)-1)', setup=setup).repeat(10, 1))
+    return evaluate(stmt='quick_sort(s,0,len(s)-1)', setup=setup, repeat=10)
 
 def avg_case_quick_sort(n):
     setup = """
@@ -76,10 +76,10 @@ np.random.seed(31415)
 s = gen_random_u_array({})
 gc.enable()
     """.format(n)
-    return min(timeit.Timer('quick_sort(s,0,len(s)-1)', setup=setup).repeat(10, 1))
+    return evaluate(stmt='quick_sort(s,0,len(s)-1)', setup=setup, repeat=10)
 
 def experiment_b_c_i_s():
-    r = np.arange(100, 2100, 100)
+    r = range(100, 2100, 100)
     times = []
     for i in r:
         times.append(best_case_insertion_sort(i))
@@ -87,7 +87,7 @@ def experiment_b_c_i_s():
     plot_data(r, times, "best case insertion sort", "Sorting", "n", "time")
 
 def experiment_b_c_q_s():
-    r = np.arange(100, 2100, 100)
+    r = range(100, 2100, 100)
     times = []
     for i in r:
         times.append(best_case_quick_sort(i))
@@ -95,7 +95,7 @@ def experiment_b_c_q_s():
     plot_data(r, times, "best case quick sort", "Sorting", "n", "time")
 
 def experiment_w_c_q_s():
-    r = np.arange(100, 2100, 100)
+    r = range(100, 2100, 100)
     times = []
     for i in r:
         times.append(worst_case_quick_sort(i))
@@ -103,7 +103,7 @@ def experiment_w_c_q_s():
     plot_data(r, times, "worst case quick sort", "Sorting", "n", "time")
 
 def experiment_w_c_i_s():
-    r = np.arange(100, 2100, 100)
+    r = range(100, 2100, 100)
     times = []
     for i in r:
         times.append(worst_case_insertion_sort(i))
@@ -111,7 +111,7 @@ def experiment_w_c_i_s():
     plot_data(r, times, "worst case insertion sort", "Sorting", "n", "time")
 
 def experiment_a_c_i_s():
-    r = np.arange(100, 2100, 100)
+    r = range(100, 2100, 100)
     times = []
     for i in r:
         times.append(avg_case_insertion_sort(i))
@@ -119,12 +119,12 @@ def experiment_a_c_i_s():
     plot_data(r, times, "average case insertion sort", "Sorting", "n", "time")
 
 def experiment_a_c_q_s():
-    r = np.arange(100, 2100, 100)
+    r = range(1000, 10_000, 1000)
     times = []
     for i in r:
         times.append(avg_case_quick_sort(i))
 
-    plot_data(r, times, "average case insertion sort", "Sorting", "n", "time")
+    plot_data(r, times, "average case quick sort", "Sorting", "n", "time")
 
 if __name__ == "__main__":
     experiment_b_c_i_s()

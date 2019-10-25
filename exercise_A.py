@@ -9,12 +9,16 @@
 
 from utils import (
     np,
-    timeit,
+    evaluate,
     plot_data
 )
 
 ## the np.random.seed(...) is included
 ## in the setup variabile
+
+# TODO:
+# implement a case where the balanced
+# tree is faster for the search
 
 def insertion_bst(n):
     setup = """
@@ -25,7 +29,7 @@ data = gen_random_u_array({})
 bst = BinarySearchTree()
 gc.enable()
     """.format(n)
-    return min(timeit.Timer('for d in data: bst.insert(d)', setup=setup).repeat(10, 1))
+    return evaluate(stmt='for d in data: bst.insert(d)', setup=setup, repeat=10)
 
 def insertion_rn(n):
     setup = """
@@ -36,10 +40,10 @@ data = gen_random_u_array({})
 rn = RedBlackTree()
 gc.enable()
     """.format(n)
-    return min(timeit.Timer('for d in data: rn.insert(d)', setup=setup).repeat(10, 1))
+    return evaluate(stmt='for d in data: rn.insert(d)', setup=setup, repeat=10)
 
 def experiment_i_bst():
-    r = np.arange(100, 2100, 100)
+    r = range(100, 2100, 100)
     times = []
     for i in r:
         times.append(insertion_bst(i))
@@ -47,7 +51,7 @@ def experiment_i_bst():
     plot_data(r, times, "BinarySearchTree", "Insertion", "n", "time")
 
 def experiment_i_rn():
-    r = np.arange(100, 2100, 100)
+    r = range(100, 2100, 100)
     times = []
     for i in r:
         times.append(insertion_rn(i))

@@ -6,7 +6,6 @@ from tree import (
 from utils import (
     np,SortedList,
     gen_random_u_array,
-    gen_reversed_array,
     gen_sorted_array
 )
 

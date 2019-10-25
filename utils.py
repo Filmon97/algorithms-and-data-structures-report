@@ -19,13 +19,13 @@ import timeit
 
 infinity = float('inf')
 
-# set one time the maximum recursion limit
+# Set one time the maximum recursion limit
 import sys
 recursion_limit = 100_000
 sys.setrecursionlimit(recursion_limit)
 
 # ______________________________________________________________________________
-""" Array Generation """
+# Array Generation 
 
 
 def gen_random_n_array(n=100):
@@ -50,6 +50,9 @@ def gen_reversed_array(n=100):
 
 # ______________________________________________________________________________
 # Performance Evaluation
+    
+def evaluate(stmt, setup, repeat):
+    return min(timeit.Timer(stmt=stmt, setup=setup).repeat(repeat,1))
     
 def plot_data(x, y, label, title, xlabel, ylabel, save=None):
     """ Plot the experiments, support save functionality """
@@ -92,6 +95,32 @@ def plot_compare(x, y, z, label, title, xlabel, ylabel, save=None):
 # Time-based memory usage
 # mprof run <executable>
 # mprof plot
+        
+# ______________________________________________________________________________
+# Math function
+
+identity = lambda x: x
+
+argmin = min
+argmax = max
+
+def distance(a, b):
+    """The distance between two (x, y) points."""
+    xA, yA = a
+    xB, yB = b
+    return math.hypot((xA - xB), (yA - yB))
+
+# ______________________________________________________________________________
+# Set utils
+def make_set(x):
+    pass
+
+def union(x, y):
+    pass
+
+def find_set(x):
+    pass
+
 # ______________________________________________________________________________
 # Queues: PriorityQueue
 
@@ -103,7 +132,7 @@ class PriorityQueue:
         returned first; if order is 'max', then it is the item with maximum f(x).
         Also supports dict-like lookup."""
 
-    def __init__(self, order='min', f=lambda x: x):
+    def __init__(self, order='min', f=identity):
         self.heap = []
 
         if order == 'min':
@@ -117,10 +146,19 @@ class PriorityQueue:
         """Insert item at its correct position."""
         heapq.heappush(self.heap, (self.f(item), item))
 
+    def insert(self, item, value):
+        """Insert item at a fixed position."""
+        heapq.heappush(self.heap, (value, item))
+
     def extend(self, items):
         """Insert each item in items at its correct position."""
         for item in items:
             self.append(item)
+
+    def fill(self, items, value):
+        """Insert each item in items at a fixed position."""
+        for item in items:
+            self.insert(item, value)
 
     def pop(self):
         """Pop and return the item (with min or max f(x) value)
@@ -129,6 +167,10 @@ class PriorityQueue:
             return heapq.heappop(self.heap)[1]
         else:
             raise Exception('Trying to pop from empty PriorityQueue.')
+
+    def update(self, item, value):
+        del self[item]
+        self.insert(item, value)
 
     def __len__(self):
         """Return current capacity of PriorityQueue."""
