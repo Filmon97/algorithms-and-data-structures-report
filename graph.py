@@ -7,10 +7,11 @@ from utils import (
     infinity,
     argmin,
     PriorityQueue,
-    distance,
-    make_set,union,find_set
+    distance
+
 )
 import math
+
 
 class Graph:
 
@@ -20,13 +21,13 @@ class Graph:
 
         if not directed:
             self.make_undirected()
-    
+
     def make_undirected(self):
         """Make a digraph into an undirected graph by adding symmetric edges."""
         for a in list(self.graph_dict.keys()):
-            for (b,dist) in self.graph_dict[a].items():
+            for (b, dist) in self.graph_dict[a].items():
                 self.connect1(b, a, dist)
-    
+
     def connect(self, A, B, distance=1):
         """Add a link from A and B of given distance, and also add the inverse
         link if the graph is undirected."""
@@ -37,7 +38,7 @@ class Graph:
     def connect1(self, A, B, distance):
         """Add a link from A to B of given distance, in one direction only."""
         self.graph_dict.setdefault(A, {})[B] = distance
-    
+
     def get(self, a, b=None):
         """Return a link distance or a dict of {node: distance} entries.
         .get(a,b) returns the distance or None;
@@ -46,27 +47,29 @@ class Graph:
 
         if b is None:
             return links
-        return links.get(b) # else
-        
+        return links.get(b)  # else
+
     def nodes(self):
         """Return a list of nodes in the graph."""
         s1 = set([k for k in self.graph_dict.keys()])
-        s2 = set([k2 for v in self.graph_dict.values() for k2,v2 in v.items()])
+        s2 = set([k2 for v in self.graph_dict.values()
+                  for k2, v2 in v.items()])
         nodes = s1.union(s2)
         return list(nodes)
 
     def edges(self, unique=False):
         """Return a list of edges in the graph."""
-        edges=[]
+        edges = []
         for node in self.nodes():
             for neighbor in self.get(node):
-                if (neighbor,node) not in edges:
+                if (neighbor, node) not in edges:
                     edges.append((node, neighbor))
         return edges
 
     def unique_edges(self):
         """Return a list of edges in one direction only."""
         return self.edges(unique=True)
+
 
 def UndirectedGraph(graph_dict=None):
     """Build a Graph where every edge (including future ones) goes both ways."""
@@ -85,35 +88,44 @@ def RandomGraph(nodes=list(np.arange(10)), min_links=2, width=400, height=300,
     g.locations = {}
     # Build the nodes
     for node in nodes:
-        g.locations[node] = (np.random.randint(width), np.random.randint(height))
+        g.locations[node] = (np.random.randint(
+            width), np.random.randint(height))
     # Build edges from each node to at least min_links nearest neighbors.
     for _ in range(min_links):
         for node in nodes:
             if len(g.get(node)) < min_links:
                 here = g.locations[node]
-                
+
                 def distance_to_node(n):
                     if n is node or g.get(node, n):
                         return infinity
                     return distance(g.locations[n], here)
-                
+
                 neighbor = argmin(nodes, key=distance_to_node)
                 d = distance(g.locations[neighbor], here) * curvature()
                 g.connect(node, neighbor, int(d))
     return g
 
-#TODO:
-# implement the [CLRS] connected_components
 
 def connected_components(graph):
-    sets = []
-    for v in graph.nodes():
-        make_set(v, sets)
-    for edge in graph.unique_edges():
-        u,v = edge
-        if find_set(u, sets) is not find_set(v, sets):
-            union(u,v, sets)
-    return sets
+    """Return the connected components in a graph.
+    Implemented by DFS."""
+    c_c_counter = 0
+    visited = set()
+
+    def depth_first_search(v):
+        for node in graph.get(v):
+            if v is not visited:
+                visited.add(node)
+            depth_first_search(node)
+
+    for node in graph.nodes():
+        if node is not visited:
+            visited.add(node)
+            c_c_counter += 1
+            depth_first_search(node)
+
+    return visited, c_c_counter
 
 
 def mst_prim(graph, r):
