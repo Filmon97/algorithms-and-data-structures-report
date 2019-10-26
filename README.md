@@ -1,5 +1,5 @@
 # algorithm-and-data-structure-reports
-Simple reports that analyze insertion_sort(), search tree, red-black tree, connected components and MST Prim.
+Simple reports that analyze insertion and quick sort, search tree, red-black tree, connected components and MST Prim.
 Heavily based on *[Introduction to Algorithms Third Edition, published by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein.[CLRS]](https://mitpress.mit.edu/books/introduction-algorithms-third-edition)*
 and *[Artificial Intelligence: A Modern Approach](http://aima.cs.berkeley.edu).*
 For the python code i also checked the repository:*[aimacode](https://github.com/aimacode/aima-python).*

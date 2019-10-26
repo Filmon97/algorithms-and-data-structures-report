@@ -5,35 +5,26 @@ from graph import (
     mst_prim
 )
 from utils import (
-    np,
-    ne
+    np
 )
+import networkx
 
 #TODO: add some tests
 
 np.random.seed(31415)
 
-def test_insertion_bst():
-    data = gen_random_u_array()
-    sorted_data = SortedList(data)
+# skeleton
 
-    bst = BinarySearchTree()
-    
-    for d in data:
-        bst.insert(d)
+def test_cc():
+    graph = RandomGraph()
+    assert networkx.number_connected_components(graph)
 
-    assert np.array_equal(bst.inorder(),sorted_data)
+def test_connected_graph():
+    graph = RandomGraph()
+    assert (networkx.is_connected(graph))
 
-def test_insertion_rn():
-    data = gen_random_u_array()
-    sorted_data = SortedList(data)
-
-    rn = RedBlackTree()
-    
-    for d in data:
-        rn.insert(d)
-        
-    assert np.array_equal(rn.inorder(),sorted_data)
+def test_mst_prim():
+    pass
 
 if __name__ == "__main__":
     pytest.main()

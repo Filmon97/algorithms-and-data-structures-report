@@ -112,14 +112,21 @@ def distance(a, b):
 
 # ______________________________________________________________________________
 # Set utils
-def make_set(x):
-    pass
+def make_set(x, s):
+    """Same as set() """
+    s.append({x})
 
-def union(x, y):
-    pass
+def union(x, y, s):
+    """Remove x and y and append the union """
+    s.append({x}.union({y}))
+    s.remove({x})
+    s.remove({y})
 
-def find_set(x):
-    pass
+def find_set(x, s):
+    """Return the representative set"""
+    for set in s:
+        if x in set:
+            return set
 
 # ______________________________________________________________________________
 # Queues: PriorityQueue

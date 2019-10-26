@@ -7,7 +7,8 @@ from utils import (
     infinity,
     argmin,
     PriorityQueue,
-    distance
+    distance,
+    make_set,union,find_set
 )
 import math
 
@@ -105,7 +106,15 @@ def RandomGraph(nodes=list(np.arange(10)), min_links=2, width=400, height=300,
 # implement the [CLRS] connected_components
 
 def connected_components(graph):
-    pass
+    sets = []
+    for v in graph.nodes():
+        make_set(v, sets)
+    for edge in graph.unique_edges():
+        u,v = edge
+        if find_set(u, sets) is not find_set(v, sets):
+            union(u,v, sets)
+    return sets
+
 
 def mst_prim(graph, r):
     """The MST PRIM algorithm implementation based on PriorityQueue """
