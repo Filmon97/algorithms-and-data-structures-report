@@ -6,8 +6,8 @@ from graph import (
 from utils import (
     np
 )
-# TODO:
-# add connected components experiment
+
+np.random.seed(31415)
 
 def experiment_cc():
     graph = RandomGraph()
@@ -27,7 +27,7 @@ def experiment_mst_prim():
     return tree
 
 if __name__ == "__main__":
-    np.random.seed(31415)
+    
     #tree = experiment_mst_prim()
     sets = experiment_cc()
     

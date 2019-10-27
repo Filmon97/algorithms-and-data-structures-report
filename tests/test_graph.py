@@ -17,11 +17,17 @@ np.random.seed(31415)
 
 def test_cc():
     graph = RandomGraph()
-    assert networkx.number_connected_components(graph)
+    number_cc = len(connected_components(graph))
+    graph_data = networkx.Graph(graph.graph_dict)
+    assert networkx.number_connected_components(graph_data) == number_cc
 
 def test_connected_graph():
     graph = RandomGraph()
-    assert (networkx.is_connected(graph))
+    number_cc = len(connected_components(graph)) 
+    graph_data = networkx.Graph(graph.graph_dict)
+    test = networkx.is_connected(graph_data)
+    test = number_cc == 1 if test else number_cc != 1 
+    assert test
 
 def test_mst_prim():
     pass

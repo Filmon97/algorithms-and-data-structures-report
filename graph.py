@@ -110,22 +110,23 @@ def RandomGraph(nodes=list(np.arange(10)), min_links=2, width=400, height=300,
 def connected_components(graph):
     """Return the connected components in a graph.
     Implemented by DFS."""
-    c_c_counter = 0
     visited = set()
 
     def depth_first_search(v):
-        for node in graph.get(v):
-            if v is not visited:
-                visited.add(node)
-            depth_first_search(node)
-
-    for node in graph.nodes():
-        if node is not visited:
-            visited.add(node)
-            c_c_counter += 1
-            depth_first_search(node)
-
-    return visited, c_c_counter
+        vs = set([v])
+        component = []
+        while vs:
+            v = vs.pop()
+            visited.add(v)
+            vs |= set(graph.get(v)) - visited
+            component.append(v)
+        return component
+    components = []
+    for v in graph.nodes():
+        if v not in visited:
+            d = depth_first_search(v)
+            components.append(d)
+    return components
 
 
 def mst_prim(graph, r):

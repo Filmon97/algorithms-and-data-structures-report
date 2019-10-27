@@ -6,6 +6,7 @@ Provides some utilities like:
 - etc
 """
 
+import sys
 from sortedcontainers import SortedList
 import numpy as np
 import heapq
@@ -20,12 +21,11 @@ import timeit
 infinity = float('inf')
 
 # Set one time the maximum recursion limit
-import sys
 recursion_limit = 100_000
 sys.setrecursionlimit(recursion_limit)
 
 # ______________________________________________________________________________
-# Array Generation 
+# Array Generation
 
 
 def gen_random_n_array(n=100):
@@ -50,10 +50,11 @@ def gen_reversed_array(n=100):
 
 # ______________________________________________________________________________
 # Performance Evaluation
-    
+
 def evaluate(stmt, setup, repeat):
-    return min(timeit.Timer(stmt=stmt, setup=setup).repeat(repeat,1))
-    
+    return min(timeit.Timer(stmt=stmt, setup=setup).repeat(repeat, 1))
+
+
 def plot_data(x, y, label, title, xlabel, ylabel, save=None):
     """ Plot the experiments, support save functionality """
     plt.style.use('seaborn')
@@ -67,8 +68,10 @@ def plot_data(x, y, label, title, xlabel, ylabel, save=None):
     else:
         plt.show()
 
-#???
-#TODO
+# ???
+# TODO
+
+
 def plot_compare(x, y, z, label, title, xlabel, ylabel, save=None):
     """ Plot the experiments, support save functionality """
     plt.style.use('seaborn')
@@ -89,20 +92,22 @@ def plot_compare(x, y, z, label, title, xlabel, ylabel, save=None):
 # Decorator
 # append below a function
 # the @profile decorator
-# import the profiler or 
-# run in the console 
-## python -m memory_profiler example.py
+# import the profiler or
+# run in the console
+# python -m memory_profiler example.py
 # Time-based memory usage
 # mprof run <executable>
 # mprof plot
-        
+
 # ______________________________________________________________________________
 # Math function
 
-identity = lambda x: x
+def identity(x): return x
+
 
 argmin = min
 argmax = max
+
 
 def distance(a, b):
     """The distance between two (x, y) points."""
@@ -185,9 +190,11 @@ class PriorityQueue:
             raise KeyError(str(key) + " is not in the PriorityQueue.")
         heapq.heapify(self.heap)
 
+
 class Color(int):
     """Just like 'bool', except values display as 'Black' and 'Red' instead of 'True' and 'False' """
     __str__ = __repr__ = lambda self: 'Black' if self else 'Red'
+
 
 Black = Color(True)
 Red = Color(False)
