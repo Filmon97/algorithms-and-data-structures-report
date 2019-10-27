@@ -1,9 +1,6 @@
 """
 Implement insertion_sort.
 Implement quick_sort.
-
-Add basic utils.
-
 """
 
 

@@ -1,3 +1,7 @@
+"""
+Implement BinarySearchTree.
+Implement RedBlackTree.
+"""
 from utils import (Red,Black)
 
 class Node:

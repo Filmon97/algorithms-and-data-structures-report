@@ -1,7 +1,7 @@
-# TODO:
-# Graph Data Structure
-# Connected Components
-# MST Prim
+"""
+Implement connected_components.
+Implement mst_prim.
+"""
 from utils import (
     np,
     infinity,
