@@ -30,13 +30,13 @@ Then to run the tests:
 
 # Index of Algorithms
 
-...
+Here is a table of the implemented algorithms, the name of the implementation in the repository, and the file where they are implemented.
 
 <!-- [`sort.py`] --->
 | **Name** | **File** | **Tests** | **Notebook**
 |:------------------------------|:--------------------------------|:-----|:---------|
-| `insertion_sort`| [`sort.py`][sort]      | Done | TODO |
-| `quick_sort`| [`sort.py`][sort]      | Done | TODO |
+| `insertion_sort`| [`sort.py`][sort]      | Done | Done |
+| `quick_sort`| [`sort.py`][sort]      | Done | Done |
 
 <!-- [`tree.py`] --->
 | **Name** | **File** | **Tests** | **Notebook**
@@ -61,7 +61,7 @@ Then to run the tests:
 
 # Index of Data Structures
 
-...
+Here is a table of the implemented data structures, the name of the implementation in the repository, and the file where they are implemented.
 
 <!-- [`tree.py`] --->
 | **Name** | **File** | **Tests** | **Notebook**

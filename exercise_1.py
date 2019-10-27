@@ -42,9 +42,9 @@ gc.enable()
 def avg_case_insertion_sort(n):
     setup = """
 from sort import (insertion_sort)
-from utils import (np,gen_random_u_array)
+from utils import (np,gen_random_n_array)
 np.random.seed(31415)
-s = gen_random_u_array({})
+s = gen_random_n_array({})
 gc.enable()
     """.format(n)
     return evaluate(stmt='insertion_sort(s)', setup=setup, repeat=10)
@@ -56,10 +56,10 @@ gc.enable()
 def best_case_quick_sort(n):
     setup = """
 from sort import (quick_sort)
-from utils import (np,gen_random_u_array)
+from utils import (np,gen_random_n_array)
 from tree import (RedBlackTree)
 np.random.seed(31415)
-s = gen_random_u_array({})
+s = gen_random_n_array({})
 balanced_tree = RedBlackTree()
 for i in s:
     balanced_tree.insert(i)
@@ -71,9 +71,9 @@ gc.enable()
 def avg_case_quick_sort(n):
     setup = """
 from sort import (quick_sort)
-from utils import (np,gen_random_u_array)
+from utils import (np,gen_random_n_array)
 np.random.seed(31415)
-s = gen_random_u_array({})
+s = gen_random_n_array({})
 gc.enable()
     """.format(n)
     return evaluate(stmt='quick_sort(s,0,len(s)-1)', setup=setup, repeat=10)

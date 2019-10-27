@@ -3,11 +3,6 @@ Implement insertion_sort.
 Implement quick_sort.
 """
 
-
-# TO DO:
-# Implement insertion_sort and quick_sort.
-
-
 # ______________________________________________________________________________
 
 def insertion_sort(data):

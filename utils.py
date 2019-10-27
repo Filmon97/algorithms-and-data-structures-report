@@ -30,7 +30,7 @@ sys.setrecursionlimit(recursion_limit)
 
 def gen_random_n_array(n=100):
     """ Generate a random array (normal distribution)"""
-    return list(np.random.randn(n))
+    return list(np.random.randn(n,))
 
 
 def gen_random_u_array(n=100):
@@ -40,12 +40,12 @@ def gen_random_u_array(n=100):
 
 def gen_sorted_array(n=100):
     """ Generate a sorted random array"""
-    return list(SortedList(gen_random_u_array(n)))
+    return list(SortedList(gen_random_n_array(n)))
 
 
 def gen_reversed_array(n=100):
     """ Generate a descending sorted random array"""
-    return list(reversed(SortedList(gen_random_u_array(n))))
+    return list(reversed(SortedList(gen_random_n_array(n))))
 
 
 # ______________________________________________________________________________
@@ -72,11 +72,11 @@ def plot_data(x, y, label, title, xlabel, ylabel, save=None):
 # TODO
 
 
-def plot_compare(x, y, z, label, title, xlabel, ylabel, save=None):
+def plot_compare(x, y, z, label1, label2, title, xlabel, ylabel, save=None):
     """ Plot the experiments, support save functionality """
     plt.style.use('seaborn')
-    plt.plot(x, y, label=label)
-    plt.plot(x, z)
+    plt.plot(x, y, label=label1)
+    plt.plot(x, z, label=label2)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
