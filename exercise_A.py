@@ -8,7 +8,6 @@
 # add the experiments
 
 from utils import (
-    np,
     evaluate,
     plot_data
 )

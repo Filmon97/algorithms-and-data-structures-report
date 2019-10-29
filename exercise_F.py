@@ -1,34 +1,36 @@
-from graph import (
-    RandomGraph,
-    mst_prim,
-    connected_components
-)
 from utils import (
-    np
+    np,
+    evaluate,
+    plot_data
 )
-
-np.random.seed(31415)
 
 def experiment_cc():
-    graph = RandomGraph()
-
-    return connected_components(graph)
+    pass
 
 # TODO:
 # add experiments with timeit
 
+
+def uniform_graph_mst_prim(n):
+    setup = """
+from graph import (ConnectedGraph)
+from utils import (np)
+np.random.seed(31415)
+graph = ConnectedGraph(list(range({})))
+gc.enable()
+    """.format(n)
+
+    return evaluate(stmt='mst_prim(graph,graph.nodes()[0])', setup=setup, repeat=10)
+
+
 def experiment_mst_prim():
-    graph = RandomGraph()
-    mst = mst_prim(graph, graph.nodes()[0])
-    tree = []
-    for node in mst:
-        if mst[node] is not None:
-            tree.append((node,mst[node]))
-    return tree
+    r = range(100, 2100, 100)
+    times = []
+    for i in r:
+        times.append(uniform_graph_mst_prim(i))
+
+    plot_data(r, times, "Prim", "Minimun Spanning Tree", "n", "time")
+
 
 if __name__ == "__main__":
-    
-    #tree = experiment_mst_prim()
-    sets = experiment_cc()
-    
-    print(sets)
+    experiment_mst_prim()
