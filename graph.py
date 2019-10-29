@@ -107,6 +107,18 @@ def RandomGraph(nodes=list(np.arange(10)), min_links=2, width=400, height=300,
     return g
 
 
+def ConnectedGraph(nodes=list(np.arange(10)), min_links=2, width=400, height=300,
+                   curvature=lambda: np.random.uniform(1.1, 1.5)):
+    """Construct a random connected graph."""
+    g = RandomGraph(nodes, min_links, width, height, curvature)
+    c_cs = connected_components(g)
+    for i in range(len(c_cs)-1):
+        # Pick two random node from different components
+        # and then connect them
+        g.connect(np.random.choice(c_cs[i]), np.random.choice(c_cs[i+1]))
+    return g
+
+
 def connected_components(graph):
     """Return the connected components in a graph.
     Implemented by DFS."""
