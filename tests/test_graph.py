@@ -54,7 +54,7 @@ def test_mst_prim():
     # Begin the test
     test = True
     
-    # Swap the edges in the networkx generated mst 
+    # I need to check if (x,y) or (y,x) is in networkx generated mst
     for node in tree:
         x, y = node
         print(x,y)
