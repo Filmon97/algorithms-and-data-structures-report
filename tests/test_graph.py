@@ -1,6 +1,7 @@
 import pytest
 from graph import (
     RandomGraph,
+    ConnectedGraph,
     connected_components,
     mst_prim
 )
@@ -23,7 +24,7 @@ def test_cc():
     assert networkx.number_connected_components(graph_data) == number_cc
 
 
-def test_connected_graph():
+def test_connected_components():
     graph = RandomGraph()
     number_cc = len(connected_components(graph))
     graph_data = networkx.Graph(graph.graph_dict)
@@ -31,6 +32,10 @@ def test_connected_graph():
     test = number_cc == 1 if test else number_cc != 1
     assert test
 
+def test_connected_graph():
+    graph = ConnectedGraph()
+    number_cc = len(connected_components(graph))
+    assert number_cc == 1
 
 def test_mst_prim():
     graph = RandomGraph()
