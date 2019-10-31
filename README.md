@@ -13,18 +13,23 @@ To download the repository:
 `git clone https://github.com/Filmon97/algorithm-and-data-structure-reports.git`
 
 Then you need to install the basic dependencies to run the project on your system:
+
 `pip install -r requirements.txt`
 
 
 To read the report you will need to fetch the LaTeX code from the overleaf repository:
 
 `cd algorithm-and-data-structure-reports`
+
 `git submodule init`
+
 `git submodule update`
 
 ### Visual Studio Code
 While you are in the **Anaconda Prompt** run:
+
 `code .`
+
 to open the project in **Visual Studio Code**
 
 If you want to run the test suite:
