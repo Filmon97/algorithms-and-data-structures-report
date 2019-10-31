@@ -15,6 +15,13 @@ To download the repository:
 Then you need to install the basic dependencies to run the project on your system:
 `pip install -r requirements.txt`
 
+
+To read the report you will also need to fetch the LaTeX code from the overleaf repository:
+
+`cd algorithm-and-data-structure-reports
+`git submodule init`
+`git submodule update`
+
 ### Visual Studio Code
 While you are in the **Anaconda Prompt** run:
 `code .`
