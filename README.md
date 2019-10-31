@@ -16,9 +16,9 @@ Then you need to install the basic dependencies to run the project on your syste
 `pip install -r requirements.txt`
 
 
-To read the report you will also need to fetch the LaTeX code from the overleaf repository:
+To read the report you will need to fetch the LaTeX code from the overleaf repository:
 
-`cd algorithm-and-data-structure-reports
+`cd algorithm-and-data-structure-reports`
 `git submodule init`
 `git submodule update`
 
