@@ -13,10 +13,11 @@ def experiment_cc():
 
 def uniform_graph_mst_prim(n):
     setup = """
-from graph import (ConnectedGraph)
+from graph import (SavedGraph, mst_prim)
 from utils import (np)
+filename = './graphs/graph'
 np.random.seed(31415)
-graph = ConnectedGraph(list(range({})))
+graph = SavedGraph(filename+str({}))
 gc.enable()
     """.format(n)
 
@@ -29,7 +30,7 @@ def experiment_mst_prim():
     for i in r:
         times.append(uniform_graph_mst_prim(i))
 
-    plot_data(r, times, "Prim", "Minimun Spanning Tree", "n", "time")
+    plot_data(r, times, "Prim", "Minimum Spanning Tree", "n", "time")
 
 
 if __name__ == "__main__":

@@ -10,7 +10,7 @@ from utils import (
     distance
 
 )
-import math
+import pickle
 
 
 class Graph:
@@ -69,6 +69,17 @@ class Graph:
     def unique_edges(self):
         """Return a list of edges in one direction only."""
         return self.edges(unique=True)
+
+    def save_graph(self, filename):
+        """Save the graph object in the filename."""
+        with open(filename + '.pickle','wb') as handle:
+            pickle.dump(self, handle)
+
+
+def SavedGraph(filename):
+    """Return a graph object stored in the filename."""
+    with open(filename + '.pickle','rb') as handle:
+        return pickle.load(handle)
 
 
 def UndirectedGraph(graph_dict=None):
