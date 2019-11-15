@@ -65,11 +65,9 @@ def plot_data(x, y, label, title, xlabel, ylabel, save=None):
     plt.legend()
     if save:
         plt.savefig(save)
+        plt.close()
     else:
         plt.show()
-
-# ???
-# TODO
 
 
 def plot_compare(x, y, z, label1, label2, title, xlabel, ylabel, save=None):
@@ -81,8 +79,10 @@ def plot_compare(x, y, z, label1, label2, title, xlabel, ylabel, save=None):
     plt.ylabel(ylabel)
     plt.title(title)
     plt.legend()
+
     if save:
         plt.savefig(save)
+        plt.close()
     else:
         plt.show()
 

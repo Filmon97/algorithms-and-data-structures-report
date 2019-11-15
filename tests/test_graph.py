@@ -14,8 +14,6 @@ import networkx
 
 np.random.seed(31415)
 
-# skeleton
-
 
 def test_cc():
     graph = RandomGraph()
@@ -32,10 +30,12 @@ def test_connected_components():
     test = number_cc == 1 if test else number_cc != 1
     assert test
 
+
 def test_connected_graph():
     graph = ConnectedGraph()
     number_cc = len(connected_components(graph))
     assert number_cc == 1
+
 
 def test_mst_prim():
     graph = RandomGraph()
@@ -44,26 +44,27 @@ def test_mst_prim():
     nx_graph = networkx.Graph()
     for node in graph.nodes():
         for neighbor in graph.get(node):
-            if nx_graph.has_edge(node,neighbor) is False and nx_graph.has_edge(neighbor,node) is False:
-                nx_graph.add_edge(node, neighbor, weight=graph.get(node, neighbor))
+            if nx_graph.has_edge(node, neighbor) is False and nx_graph.has_edge(neighbor, node) is False:
+                nx_graph.add_edge(
+                    node, neighbor, weight=graph.get(node, neighbor))
 
     tree = []
     for node in mst:
         if mst[node] is not None:
-            tree.append((node,mst[node]))
+            tree.append((node, mst[node]))
     print(tree)
-    
-    T = networkx.minimum_spanning_tree(nx_graph)  
+
+    T = networkx.minimum_spanning_tree(nx_graph)
     edges = T.edges(data=False)
 
     # Begin the test
     test = True
-    
+
     # I need to check if (x,y) or (y,x) is in networkx generated mst
     for node in tree:
         x, y = node
-        print(x,y)
-        test = test and ((x,y) in edges or (y,x) in edges)
+        print(x, y)
+        test = test and ((x, y) in edges or (y, x) in edges)
 
     assert test
 

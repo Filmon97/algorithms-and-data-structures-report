@@ -107,3 +107,6 @@ venv.bak/
 .vscode/
 
 graphs/
+__init__.py
+html/
+images/

@@ -1,5 +1,12 @@
 # algorithm-and-data-structure-reports
 Simple reports that analyze insertion and quick sort, search tree, red-black tree, connected components and MST Prim.
+
+The reports are based on three exercises assigned by the Professor.
+
+Exercise 1:
+
+
+
 Heavily based on *[Introduction to Algorithms Third Edition, published by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein.[CLRS]](https://mitpress.mit.edu/books/introduction-algorithms-third-edition)*
 and *[Artificial Intelligence: A Modern Approach](http://aima.cs.berkeley.edu).*
 For the python code i also checked the repository: *[aimacode](https://github.com/aimacode/aima-python).*
@@ -44,16 +51,12 @@ Then to run the tests:
 
 Here is a table of the implemented algorithms, the name of the implementation in the repository, and the file where they are implemented.
 
-<!-- [`sort.py`] --->
-| **Name** | **File** | **Tests** | **Notebook**
-|:------------------------------|:--------------------------------|:-----|:---------|
-| `insertion_sort`| [`sort.py`][sort]      | Done | Done |
-| `quick_sort`| [`sort.py`][sort]      | Done | Done |
 
-<!-- [`tree.py`] --->
 | **Name** | **File** | **Tests** | **Notebook**
 |:------------------------------|:--------------------------------|:-----|:---------|
-| `insert_node`| [`tree.py`][tree]      | TODO | TODO |
+| `insertion_sort`| [`sort.py`][sort]      | Done | Done |<!-- [`sort.py`] --->
+| `quick_sort`| [`sort.py`][sort]      | Done | Done |
+| `insert`| [`tree.py`][tree]      | TODO | TODO |<!-- [`tree.py`] --->
 | `insert_fixup`| [`tree.py`][tree]      | TODO | TODO |
 | `find`| [`tree.py`][tree]      | TODO | TODO |
 | `inorder`| [`tree.py`][tree]      | TODO | TODO |
@@ -63,34 +66,21 @@ Here is a table of the implemented algorithms, the name of the implementation in
 | `left_rotate`| [`tree.py`][tree]      | TODO | TODO |
 | `right_rotate`| [`tree.py`][tree]      | TODO | TODO |
 | `postorder`| [`tree.py`][tree]      | TODO | TODO |
-
-
-<!-- [`graph.py`] --->
-| **Name** | **File** | **Tests** | **Notebook**
-|:------------------------------|:--------------------------------|:-----|:---------|
-| `connected_components`| [`graph.py`][graph]      | TODO | TODO |
+| `connected_components`| [`graph.py`][graph]      | TODO | TODO |<!-- [`graph.py`] --->
 | `mst_prim`| [`graph.py`][graph]      | TODO | TODO |
 
 # Index of Data Structures
 
 Here is a table of the implemented data structures, the name of the implementation in the repository, and the file where they are implemented.
 
-<!-- [`tree.py`] --->
+
 | **Name** | **File** | **Tests** | **Notebook**
 |:------------------------------|:--------------------------------|:-----|:---------|
-| `Node`| [`tree.py`][tree]      | TODO | TODO |
+| `Node`| [`tree.py`][tree]      | TODO | TODO |<!-- [`tree.py`] --->
 | `BinarySearchTree`| [`tree.py`][tree]      | TODO | TODO |
 | `RedBlackTree`| [`tree.py`][tree]      | TODO | TODO |
-
-<!-- [`graph.py`] --->
-| **Name** | **File** | **Tests** | **Notebook**
-|:------------------------------|:--------------------------------|:-----|:---------|
-| `Graph`| [`graph.py`][graph]      | TODO | TODO |
-
-<!-- [`utils.py`] --->
-| **Name** | **File** | **Tests** | **Notebook**
-|:------------------------------|:--------------------------------|:-----|:---------|
-| `PriorityQueue`| [`utils.py`][utils]      | TODO | TODO |
+| `Graph`| [`graph.py`][graph]      | TODO | TODO |<!-- [`graph.py`] --->
+| `PriorityQueue`| [`utils.py`][utils]      | TODO | TODO |<!-- [`utils.py`] --->
 
 <!---Reference Links-->
 [sort]:../master/sort.py

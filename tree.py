@@ -2,14 +2,15 @@
 Implement BinarySearchTree.
 Implement RedBlackTree.
 """
-from utils import (Red,Black)
+from utils import (Red, Black)
+
 
 class Node:
     """A node in a binary search tree. Contains a pointer to the parent (the node
     that this is a successor of).
-    extend for red-black tree"""
+    The color attribute is used in RedBlackTree"""
 
-    def __init__(self, key, parent=None,color=None):
+    def __init__(self, key, parent=None, color=None):
         """Create a Node."""
         self.parent = parent
         self.key = key
@@ -17,6 +18,7 @@ class Node:
         self.right = None
         if color is not None:
             self.color = color
+
     def __repr__(self):
         return "<Node {}>".format(self.key)
 
@@ -32,29 +34,30 @@ class Node:
 
     def __hash__(self):
         return hash(self.key)
-    
+
     def child_node(self):
         """Return the left and right nodes """
-        children = [] 
+        children = []
         if (self.left is not None):
             children.append(self.left)
-        if (self.right is not None): 
+        if (self.right is not None):
             children.append(self.right)
         return children
+
 
 class BinarySearchTree:
     """Binary Search Tree """
 
     def __init__(self):
         self.root = None
-        
+
     def insert(self, key):
         self.insert_node(Node(key))
 
     def insert_node(self, z):
         x = self.root
         y = x
-        while x: # x != None
+        while x:  # x != None
             y = x
             if z.key < x.key:
                 x = x.left
@@ -74,7 +77,7 @@ class BinarySearchTree:
         """Find key-valued node"""
         if x is None:
             x = self.root
-        while x and key is not x.key: # x!= None
+        while x and key is not x.key:  # x!= None
             if key < x.key:
                 x = x.left
             else:
@@ -84,6 +87,7 @@ class BinarySearchTree:
     def inorder(self):
         """Inorder returns an array"""
         nodes = []
+
         def r_inorder(v):
             """Recursive inorder"""
             if(v is None):
@@ -95,15 +99,31 @@ class BinarySearchTree:
                 r_inorder(v.right)
         r_inorder(self.root)
         return nodes
-   
-    def recursive_height(self,x):
+
+    def postorder(self):
+        """Postorder returns an array"""
+        nodes = []
+
+        def r_postorder(v):
+            """Recursive postorder"""
+            if(v is None):
+                return
+            if(v.left is not None):
+                r_postorder(v.left)
+            if(v.right is not None):
+                r_postorder(v.right)
+            nodes.append(v.key)
+        r_postorder(self.root)
+        return nodes
+
+    def recursive_height(self, x):
         if x is None:
             return -1
         return max(self.recursive_height(x.left), self.recursive_height(x.right)) + 1
 
     def tree_height(self):
         return self.recursive_height(self.root)
-    
+
     def minimum(self, x=None):
         if x is None:
             x = self.root
@@ -118,19 +138,17 @@ class BinarySearchTree:
             x = x.right
         return x
 
-#TODO: remove inheritance
-# the code should be implementation-indipendence
-# also most of the methods are overridden because
-# of self.nil
-class RedBlackTree(BinarySearchTree):
+
+class RedBlackTree:
     """RedBlackTree """
+
     def __init__(self):
         self.nil = Node(None, color=Black)
         self.root = self.nil
 
     def insert(self, key):
         self.insert_node(Node(key, color=Black))
-            
+
     def insert_node(self, z):
         y = self.nil
         x = self.root
@@ -151,8 +169,7 @@ class RedBlackTree(BinarySearchTree):
         z.right = self.nil
         z.color = Red
         self.insert_fixup(z)
-        
-        
+
     def insert_fixup(self, z):
         while z.p.color is Red:
             if z.p is z.p.p.left:
@@ -181,11 +198,10 @@ class RedBlackTree(BinarySearchTree):
                         z = z.p
                         self.right_rotate(z)
                     z.p.color = Black
-                    z.p.p.color= Red
+                    z.p.p.color = Red
                     self.left_rotate(z.p.p)
         self.root.color = Black
 
-    
     def left_rotate(self, x):
         y = x.right
         x.right = y.left
@@ -215,10 +231,11 @@ class RedBlackTree(BinarySearchTree):
             y.p.left = x
         x.right = y
         y.p = x
-    
+
     def inorder(self):
         """Inorder returns an array"""
         nodes = []
+
         def r_inorder(v):
             """Recursive inorder"""
             if(v is self.nil):
@@ -230,10 +247,11 @@ class RedBlackTree(BinarySearchTree):
                 r_inorder(v.right)
         r_inorder(self.root)
         return nodes
-    
+
     def postorder(self):
         """Postorder returns an array"""
         nodes = []
+
         def r_postorder(v):
             """Recursive postorder"""
             if(v is self.nil):
@@ -245,3 +263,37 @@ class RedBlackTree(BinarySearchTree):
             nodes.append(v.key)
         r_postorder(self.root)
         return nodes
+
+    def find(self, key, x=None):
+        """Find key-valued node"""
+        if x is None:
+            x = self.root
+        while x is not self.nil and key is not x.key:
+            if key < x.key:
+                x = x.left
+            else:
+                x = x.right
+
+        return None if x is self.nil else x
+
+    def minimum(self, x=None):
+        if x is None:
+            x = self.root
+        while x.left is not self.nil:
+            x = x.left
+        return x
+
+    def maximum(self, x=None):
+        if x is None:
+            x = self.root
+        while x.right is not self.nil:
+            x = x.right
+        return x
+
+    def recursive_height(self, x):
+        if x is self.nil:
+            return -1
+        return max(self.recursive_height(x.left), self.recursive_height(x.right)) + 1
+
+    def tree_height(self):
+        return self.recursive_height(self.root)
