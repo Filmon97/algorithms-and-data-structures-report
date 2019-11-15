@@ -47,7 +47,7 @@ gc.enable()
 #  is the post-order traversal
 # of the balanced binary search tree.
 
-
+#FIXME
 def best_case_quick_sort(n):
     setup = """
 from sort import (quick_sort)

@@ -24,7 +24,7 @@ Then you need to install the basic dependencies to run the project on your syste
 `pip install -r requirements.txt`
 
 
-To read the report you will need to fetch the LaTeX code from the overleaf repository:
+*(This is only for me)* To read the report you will need to fetch the LaTeX code from the overleaf repository *(You don't have the creds)*:
 
 `cd algorithm-and-data-structure-reports`
 
@@ -52,22 +52,22 @@ Then to run the tests:
 Here is a table of the implemented algorithms, the name of the implementation in the repository, and the file where they are implemented.
 
 
-| **Name** | **File** | **Tests** | **Notebook**
-|:------------------------------|:--------------------------------|:-----|:---------|
-| `insertion_sort`| [`sort.py`][sort]      | Done | Done |<!-- [`sort.py`] --->
-| `quick_sort`| [`sort.py`][sort]      | Done | Done |
-| `insert`| [`tree.py`][tree]      | TODO | TODO |<!-- [`tree.py`] --->
-| `insert_fixup`| [`tree.py`][tree]      | TODO | TODO |
-| `find`| [`tree.py`][tree]      | TODO | TODO |
-| `inorder`| [`tree.py`][tree]      | TODO | TODO |
-| `tree_height`| [`tree.py`][tree]      | TODO | TODO |
-| `minimum`| [`tree.py`][tree]      | TODO | TODO |
-| `maximum`| [`tree.py`][tree]      | TODO | TODO |
-| `left_rotate`| [`tree.py`][tree]      | TODO | TODO |
-| `right_rotate`| [`tree.py`][tree]      | TODO | TODO |
-| `postorder`| [`tree.py`][tree]      | TODO | TODO |
-| `connected_components`| [`graph.py`][graph]      | TODO | TODO |<!-- [`graph.py`] --->
-| `mst_prim`| [`graph.py`][graph]      | TODO | TODO |
+| **Name** | **File** | **Tests**
+|:------------------------------|:--------------------------------|:------|
+| `insertion_sort`| [`sort.py`][sort]      | Done |<!-- [`sort.py`] --->
+| `quick_sort`| [`sort.py`][sort]      | Done |
+| `insert`| [`tree.py`][tree]      | Done |<!-- [`tree.py`] --->
+| `insert_fixup`| [`tree.py`][tree]      | Done |
+| `find`| [`tree.py`][tree]      | Done |
+| `inorder`| [`tree.py`][tree]      | Done |
+| `tree_height`| [`tree.py`][tree]      | Done |
+| `minimum`| [`tree.py`][tree]      | Done |
+| `maximum`| [`tree.py`][tree]      | Done |
+| `left_rotate`| [`tree.py`][tree]      | TODO |
+| `right_rotate`| [`tree.py`][tree]      | TODO |
+| `postorder`| [`tree.py`][tree]      | Done |
+| `connected_components`| [`graph.py`][graph]      | Done |<!-- [`graph.py`] --->
+| `mst_prim`| [`graph.py`][graph]      | Done |
 
 # Index of Data Structures
 
@@ -76,11 +76,11 @@ Here is a table of the implemented data structures, the name of the implementati
 
 | **Name** | **File** | **Tests** | **Notebook**
 |:------------------------------|:--------------------------------|:-----|:---------|
-| `Node`| [`tree.py`][tree]      | TODO | TODO |<!-- [`tree.py`] --->
-| `BinarySearchTree`| [`tree.py`][tree]      | TODO | TODO |
-| `RedBlackTree`| [`tree.py`][tree]      | TODO | TODO |
-| `Graph`| [`graph.py`][graph]      | TODO | TODO |<!-- [`graph.py`] --->
-| `PriorityQueue`| [`utils.py`][utils]      | TODO | TODO |<!-- [`utils.py`] --->
+| `Node`| [`tree.py`][tree]      | Done |<!-- [`tree.py`] --->
+| `BinarySearchTree`| [`tree.py`][tree]      | Done |
+| `RedBlackTree`| [`tree.py`][tree]      | Done |
+| `Graph`| [`graph.py`][graph]      | Done |<!-- [`graph.py`] --->
+| `PriorityQueue`| [`utils.py`][utils]      | Done |<!-- [`utils.py`] --->
 
 <!---Reference Links-->
 [sort]:../master/sort.py
