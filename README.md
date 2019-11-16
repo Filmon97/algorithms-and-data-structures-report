@@ -1,4 +1,4 @@
-# algorithm-and-data-structure-reports
+# algorithm-and-data-structure-report
 Simple reports that analyze insertion and quick sort, search tree, red-black tree, connected components and MST Prim.
 
 The reports are based on three exercises assigned by the Professor.
