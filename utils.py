@@ -16,6 +16,8 @@ import math
 import matplotlib.pyplot as plt
 import timeit
 import os
+from numba import jit 
+
 # from memory_profiler import profile
 
 infinity = float('inf')
