@@ -73,8 +73,8 @@ def plot_data(x, y, label, title, xlabel, ylabel, save=None):
 def plot_compare(x, y, z, label1, label2, title, xlabel, ylabel, save=None):
     """ Plot the experiments, support save functionality """
     plt.style.use('seaborn')
-    plt.plot(x, y, label=label1, marker=11)
-    plt.plot(x, z, label=label2, marker=11)
+    plt.plot(x, y, label=label1, marker=11, linestyle="--")
+    plt.plot(x, z, label=label2, marker=11, linestyle="--")
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
