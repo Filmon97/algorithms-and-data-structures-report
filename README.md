@@ -3,9 +3,8 @@ Simple reports that analyze insertion and quick sort, search tree, red-black tre
 
 The report is based on three exercises assigned by the Professor.
 
-Exercise 1:
+## Exercise 1:
 Write one or more Python programs to:
-
 Generate a random array with suitable behaviour
 * Implement Insertion Sort algorithm
 *  Implement Quick Sort or Merge Sort algorithm
@@ -13,6 +12,25 @@ Generate a random array with suitable behaviour
 Write a program that performs tests by measuring execution times of the previous algorithms on:
 * Sets of data of increasing size(array with 10,100,1000 ... data) 
 * With randomly generated input data and sets of data that represent the best/worst cases for an algorithm
+
+## Exercise A
+We want to analyze the differences between Binary Search Trees and Red Black Trees
+To do this, we'll have to:
+* Write Python programs that implement RB tree from the BS tree's code that we saw during class.
+    * * Probably the BS tree's implementation that we saw during class should be completed with missing methods or attributes
+    * * For the RB trees is not mandatory to consider the deletion (insertion is mandatory)
+
+* Write the programs that execute some tests (experiments) that will help us to understand the advantages and disadvantages of BS trees 
+
+## Exercise F:
+Write the below programs to study the algorithm for finding the connected components:
+
+* Randomly generated graphs with an arbitrary nodes cardinality and a given probability of existance of edges(for example given a adj matrix with all zeros, change value to 1 with a given probability)
+* Randomly generated weighted graphs
+* Finding of connencted components
+* Prim's algorithm
+* Priority queue data structure (with min-hash)
+* A program that conducts experiment on random graphs with a growing dimension and edge presence
 
 
 Heavily based on *[Introduction to Algorithms Third Edition, published by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein.[CLRS]](https://mitpress.mit.edu/books/introduction-algorithms-third-edition)*

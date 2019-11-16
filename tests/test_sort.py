@@ -15,7 +15,7 @@ from tree import (
 
 # some alternative seeds that can be used with random.seed (non numpy version)
 # golden_ratio = (1 + math.sqrt(5))/2
-# 'algorithm-and-data-structure-reports'
+# 'algorithms-and-data-structures-report'
 # math.pi or math.e
 # 'filmon_arefayne'
 

@@ -7,10 +7,6 @@ from utils import (
 def experiment_cc():
     pass
 
-# TODO:
-# add experiments with timeit
-
-
 def uniform_graph_mst_prim(n):
     setup = """
 from graph import (SavedGraph, mst_prim)
