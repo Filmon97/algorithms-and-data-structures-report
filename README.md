@@ -1,10 +1,18 @@
-# algorithm-and-data-structure-report
+# algorithms-and-data-structures-report
 Simple reports that analyze insertion and quick sort, search tree, red-black tree, connected components and MST Prim.
 
 The report is based on three exercises assigned by the Professor.
 
 Exercise 1:
+Write one or more Python programs to:
 
+Generate a random array with suitable behaviour
+* Implement Insertion Sort algorithm
+*  Implement Quick Sort or Merge Sort algorithm
+
+Write a program that performs tests by measuring execution times of the previous algorithms on:
+* Sets of data of increasing size(array with 10,100,1000 ... data) 
+* With randomly generated input data and sets of data that represent the best/worst cases for an algorithm
 
 
 Heavily based on *[Introduction to Algorithms Third Edition, published by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein.[CLRS]](https://mitpress.mit.edu/books/introduction-algorithms-third-edition)*
@@ -17,7 +25,7 @@ Navigate in the **Anaconda Prompt** and select your environment for example:
 
 To download the repository:
 
-`git clone https://github.com/Filmon97/algorithm-and-data-structure-reports.git`
+`git clone https://github.com/Filmon97/algorithms-and-data-structures-report.git`
 
 Then you need to install the basic dependencies to run the project on your system:
 
@@ -26,7 +34,7 @@ Then you need to install the basic dependencies to run the project on your syste
 
 *(This is only for me)* To read the report you will need to fetch the LaTeX code from the overleaf repository *(You don't have the creds)*:
 
-`cd algorithm-and-data-structure-reports`
+`cd algorithms-and-data-structures-report`
 
 `git submodule init`
 
