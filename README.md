@@ -74,8 +74,8 @@ Here is a table of the implemented algorithms, the name of the implementation in
 Here is a table of the implemented data structures, the name of the implementation in the repository, and the file where they are implemented.
 
 
-| **Name** | **File** | **Tests** | **Notebook**
-|:------------------------------|:--------------------------------|:-----|:---------|
+| **Name** | **File** | **Tests** 
+|:------------------------------|:--------------------------------|:------|
 | `Node`| [`tree.py`][tree]      | Done |<!-- [`tree.py`] --->
 | `BinarySearchTree`| [`tree.py`][tree]      | Done |
 | `RedBlackTree`| [`tree.py`][tree]      | Done |
