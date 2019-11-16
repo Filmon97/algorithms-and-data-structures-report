@@ -1,7 +1,7 @@
 # algorithm-and-data-structure-report
 Simple reports that analyze insertion and quick sort, search tree, red-black tree, connected components and MST Prim.
 
-The reports are based on three exercises assigned by the Professor.
+The report is based on three exercises assigned by the Professor.
 
 Exercise 1:
 
@@ -9,7 +9,7 @@ Exercise 1:
 
 Heavily based on *[Introduction to Algorithms Third Edition, published by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein.[CLRS]](https://mitpress.mit.edu/books/introduction-algorithms-third-edition)*
 and *[Artificial Intelligence: A Modern Approach](http://aima.cs.berkeley.edu).*
-For the python code i also checked the repository: *[aimacode](https://github.com/aimacode/aima-python).*
+For the Python code I was also inspired by the repository: *[aimacode](https://github.com/aimacode/aima-python).*
 ## Installation Guide
 
 Navigate in the **Anaconda Prompt** and select your environment for example:
