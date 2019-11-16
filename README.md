@@ -5,9 +5,9 @@ The report is based on three exercises assigned by the Professor.
 
 ## Exercise 1:
 Write one or more Python programs to:
-Generate a random array with suitable behaviour
+* Generate a random array with suitable behaviour
 * Implement Insertion Sort algorithm
-*  Implement Quick Sort or Merge Sort algorithm
+* Implement Quick Sort or Merge Sort algorithm
 
 Write a program that performs tests by measuring execution times of the previous algorithms on:
 * Sets of data of increasing size(array with 10,100,1000 ... data) 
@@ -17,8 +17,8 @@ Write a program that performs tests by measuring execution times of the previous
 We want to analyze the differences between Binary Search Trees and Red Black Trees
 To do this, we'll have to:
 * Write Python programs that implement RB tree from the BS tree's code that we saw during class.
-    * * Probably the BS tree's implementation that we saw during class should be completed with missing methods or attributes
-    * * For the RB trees is not mandatory to consider the deletion (insertion is mandatory)
+    * Probably the BS tree's implementation that we saw during class should be completed with missing methods or attributes
+    * For the RB trees is not mandatory to consider the deletion (insertion is mandatory)
 
 * Write the programs that execute some tests (experiments) that will help us to understand the advantages and disadvantages of BS trees 
 
