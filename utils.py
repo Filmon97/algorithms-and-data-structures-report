@@ -15,7 +15,7 @@ import collections
 import math
 import matplotlib.pyplot as plt
 import timeit
-
+import os
 # from memory_profiler import profile
 
 infinity = float('inf')
@@ -58,7 +58,7 @@ def evaluate(stmt, setup, repeat):
 def plot_data(x, y, label, title, xlabel, ylabel, save=None):
     """ Plot the experiments, support save functionality """
     plt.style.use('seaborn')
-    plt.plot(x, y, label=label)
+    plt.plot(x, y, label=label, marker=11)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
@@ -73,14 +73,15 @@ def plot_data(x, y, label, title, xlabel, ylabel, save=None):
 def plot_compare(x, y, z, label1, label2, title, xlabel, ylabel, save=None):
     """ Plot the experiments, support save functionality """
     plt.style.use('seaborn')
-    plt.plot(x, y, label=label1)
-    plt.plot(x, z, label=label2)
+    plt.plot(x, y, label=label1, marker=11)
+    plt.plot(x, z, label=label2, marker=11)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
     plt.legend()
 
     if save:
+        os.makedirs(os.path.dirname(save), exist_ok=True)
         plt.savefig(save)
         plt.close()
     else:

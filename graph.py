@@ -72,6 +72,7 @@ class Graph:
 
     def save_graph(self, filename):
         """Save the graph object in the filename."""
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
         with open(filename + '.pickle','wb') as handle:
             pickle.dump(self, handle)
 
