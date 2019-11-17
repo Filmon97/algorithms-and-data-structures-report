@@ -32,13 +32,16 @@ sys.setrecursionlimit(recursion_limit)
 
 def gen_random_n_array(n=100):
     """ Generate a random array (normal distribution)"""
-    return list(np.random.randn(n,))
+    return list(np.random.randn(n))
 
 
 def gen_random_u_array(n=100):
     """ Generate a random array (uniform distribution)"""
     return list(np.random.rand(n))
 
+def gen_random_int_array(n=100):
+    """ Generate a random interger array"""
+    return list(np.random.randint(1_000_000_000,size=n))
 
 def gen_sorted_array(n=100):
     """ Generate a sorted random array"""

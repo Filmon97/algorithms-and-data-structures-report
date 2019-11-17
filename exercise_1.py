@@ -175,6 +175,16 @@ def experiment_a_c_c():
     plot_compare(r, times_quick, times_inser, "average case quick sort",
                  "average case insertion sort", "Sorting", "n", "time", filepath+'averagecase.png')
 
+def experiment_b_a_q_c():
+    r = [2,4,16,32,64,128,256,512,1024,2048,4096,8192]
+    times_b_q = []
+    times_a_q = []
+    for i in r:
+        times_b_q.append(best_case_quick_sort(i))
+        times_a_q.append(avg_case_quick_sort(i))
+
+    plot_compare(r, times_b_q, times_a_q, "best case quick sort",
+                 "average case quick sort", "Sorting", "n", "time")
 
 if __name__ == "__main__":
     # experiment_b_c_i_s()
@@ -183,6 +193,7 @@ if __name__ == "__main__":
     # experiment_w_c_q_s()
     # experiment_a_c_i_s()
     # experiment_a_c_q_s()
-    experiment_a_c_c()
-    experiment_b_c_c()
-    experiment_w_c_c()
+    # experiment_a_c_c()
+    # experiment_b_c_c()
+    # experiment_w_c_c()
+    experiment_b_a_q_c()
