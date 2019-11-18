@@ -6,6 +6,9 @@ from utils import (
 
 # the np.random.seed(...) is included
 # in the setup variabile
+start = 100
+end = 2100
+offset = 100
 
 
 def insertion_bst(n):
@@ -61,7 +64,7 @@ gc.enable()
 
 
 def experiment_i_bst():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times = []
     for i in r:
         times.append(insertion_bst(i))
@@ -70,7 +73,7 @@ def experiment_i_bst():
 
 
 def experiment_i_rbt():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times = []
     for i in r:
         times.append(insertion_rbt(i))
@@ -79,7 +82,7 @@ def experiment_i_rbt():
 
 
 def experiment_s_bst():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times = []
     for i in r:
         times.append(search_bst(i))
@@ -88,7 +91,7 @@ def experiment_s_bst():
 
 
 def experiment_s_rbt():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times = []
     for i in r:
         times.append(search_rbt(i))
@@ -97,7 +100,7 @@ def experiment_s_rbt():
 
 
 def experiment_i_compare():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times_bst = []
     times_rbt = []
     for i in r:
@@ -109,7 +112,7 @@ def experiment_i_compare():
 
 
 def experiment_s_compare():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times_bst = []
     times_rbt = []
     for i in r:

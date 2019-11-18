@@ -8,7 +8,10 @@ from utils import (
 # the np.random.seed(...) is included
 # in the setup variabile
 filepath = './images/exercise_1/'
-
+# global range(start,end,offset)
+start = 100
+end = 20_100
+offset = 1000
 
 def worst_case_insertion_sort(n):
     setup = """
@@ -65,7 +68,7 @@ gc.enable()
 
 
 def experiment_b_c_i_s():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times = []
     for i in r:
         times.append(best_case_insertion_sort(i))
@@ -73,7 +76,7 @@ def experiment_b_c_i_s():
     plot_data(r, times, "best case insertion sort", "Sorting", "n", "time")
 
 def experiment_w_c_q_s():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times = []
     for i in r:
         times.append(worst_case_quick_sort(i))
@@ -82,7 +85,7 @@ def experiment_w_c_q_s():
 
 
 def experiment_w_c_i_s():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times = []
     for i in r:
         times.append(worst_case_insertion_sort(i))
@@ -91,7 +94,7 @@ def experiment_w_c_i_s():
 
 
 def experiment_a_c_i_s():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times = []
     for i in r:
         times.append(avg_case_insertion_sort(i))
@@ -100,7 +103,7 @@ def experiment_a_c_i_s():
 
 
 def experiment_a_c_q_s():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times = []
     for i in r:
         times.append(avg_case_quick_sort(i))
@@ -109,7 +112,7 @@ def experiment_a_c_q_s():
 
 
 def experiment_b_c_c():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times_quick = []
     times_inser = []
     for i in r:
@@ -121,7 +124,7 @@ def experiment_b_c_c():
 
 
 def experiment_w_c_c():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times_quick = []
     times_inser = []
     for i in r:
@@ -133,7 +136,7 @@ def experiment_w_c_c():
 
 
 def experiment_a_c_c():
-    r = range(100, 2100, 100)
+    r = range(start, end, offset)
     times_quick = []
     times_inser = []
     for i in r:
