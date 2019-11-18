@@ -16,7 +16,7 @@ import math
 import matplotlib.pyplot as plt
 import timeit
 import os
-from numba import jit 
+from numba import jit
 
 # from memory_profiler import profile
 
@@ -30,18 +30,23 @@ sys.setrecursionlimit(recursion_limit)
 # Array Generation
 
 
+@jit
 def gen_random_n_array(n=100):
     """ Generate a random array (normal distribution)"""
     return list(np.random.randn(n))
 
 
+@jit
 def gen_random_u_array(n=100):
     """ Generate a random array (uniform distribution)"""
     return list(np.random.rand(n))
 
+
+@jit
 def gen_random_int_array(n=100):
     """ Generate a random interger array"""
-    return list(np.random.randint(1_000_000_000,size=n))
+    return list(np.random.randint(1_000_000_000, size=n))
+
 
 def gen_sorted_array(n=100):
     """ Generate a sorted random array"""
@@ -115,6 +120,7 @@ argmin = min
 argmax = max
 
 
+@jit
 def distance(a, b):
     """The distance between two (x, y) points."""
     xA, yA = a

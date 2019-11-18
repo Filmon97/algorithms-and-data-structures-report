@@ -42,28 +42,6 @@ gc.enable()
     """.format(n)
     return evaluate(stmt='insertion_sort(s)', setup=setup, repeat=10)
 
-# The best case for Quicksort
-#  using last element as pivot
-#  is the post-order traversal
-# of the balanced binary search tree.
-
-#FIXME
-def best_case_quick_sort(n):
-    setup = """
-from sort import (quick_sort)
-from utils import (np,gen_random_n_array)
-from tree import (RedBlackTree)
-np.random.seed(31415)
-s = gen_random_n_array({})
-balanced_tree = RedBlackTree()
-for i in s:
-    balanced_tree.insert(i)
-s = balanced_tree.postorder()
-gc.enable()
-    """.format(n)
-    return evaluate(stmt='quick_sort(s,0,len(s)-1)', setup=setup, repeat=10)
-
-
 def avg_case_quick_sort(n):
     setup = """
 from sort import (quick_sort)
@@ -93,16 +71,6 @@ def experiment_b_c_i_s():
         times.append(best_case_insertion_sort(i))
 
     plot_data(r, times, "best case insertion sort", "Sorting", "n", "time")
-
-
-def experiment_b_c_q_s():
-    r = range(100, 2100, 100)
-    times = []
-    for i in r:
-        times.append(best_case_quick_sort(i))
-
-    plot_data(r, times, "best case quick sort", "Sorting", "n", "time")
-
 
 def experiment_w_c_q_s():
     r = range(100, 2100, 100)
@@ -145,10 +113,10 @@ def experiment_b_c_c():
     times_quick = []
     times_inser = []
     for i in r:
-        times_quick.append(best_case_quick_sort(i))
+        times_quick.append(avg_case_quick_sort(i))
         times_inser.append(best_case_insertion_sort(i))
 
-    plot_compare(r, times_quick, times_inser, "best case quick sort",
+    plot_compare(r, times_quick, times_inser, "best(avg) case quick sort",
                  "best case insertion sort", "Sorting", "n", "time", filepath+'bestcase.png')
 
 
@@ -175,16 +143,6 @@ def experiment_a_c_c():
     plot_compare(r, times_quick, times_inser, "average case quick sort",
                  "average case insertion sort", "Sorting", "n", "time", filepath+'averagecase.png')
 
-def experiment_b_a_q_c():
-    r = [2,4,16,32,64,128,256,512,1024,2048,4096,8192]
-    times_b_q = []
-    times_a_q = []
-    for i in r:
-        times_b_q.append(best_case_quick_sort(i))
-        times_a_q.append(avg_case_quick_sort(i))
-
-    plot_compare(r, times_b_q, times_a_q, "best case quick sort",
-                 "average case quick sort", "Sorting", "n", "time")
 
 if __name__ == "__main__":
     # experiment_b_c_i_s()
@@ -193,7 +151,6 @@ if __name__ == "__main__":
     # experiment_w_c_q_s()
     # experiment_a_c_i_s()
     # experiment_a_c_q_s()
-    # experiment_a_c_c()
-    # experiment_b_c_c()
-    # experiment_w_c_c()
-    experiment_b_a_q_c()
+    experiment_a_c_c()
+    experiment_b_c_c()
+    experiment_w_c_c()
