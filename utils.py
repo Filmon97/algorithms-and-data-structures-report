@@ -18,6 +18,12 @@ import timeit
 import os
 from numba import jit
 
+from numba.errors import NumbaDeprecationWarning, NumbaPendingDeprecationWarning
+import warnings
+
+warnings.simplefilter('ignore', category=NumbaDeprecationWarning)
+warnings.simplefilter('ignore', category=NumbaPendingDeprecationWarning)
+
 # from memory_profiler import profile
 
 infinity = float('inf')
