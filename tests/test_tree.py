@@ -22,7 +22,6 @@ def test_insert():
 
     assert bst.find(5) and rbt.find(5)
 
-# FIXME
 def test_insert_fixup():
     rbt = RedBlackTree()
 
@@ -88,15 +87,10 @@ def test_maximum():
 
     assert bst.maximum().key is rbt.maximum().key
 
-# TODO
+# Done
+test_left_rotate = test_insert_fixup
 
-
-def test_left_rotate():
-    pass
-
-
-def test_right_rotate():
-    pass
+test_right_rotate = test_insert_fixup
 
 
 def test_postorder():

@@ -13,7 +13,7 @@ Write a program that performs tests by measuring execution times of the previous
 * Sets of data of increasing size(array with 10,100,1000 ... data) 
 * With randomly generated input data and sets of data that represent the best/worst cases for an algorithm
 
-## Exercise A
+## Exercise A:
 We want to analyze the differences between Binary Search Trees and Red Black Trees
 To do this, we'll have to:
 * Write Python programs that implement RB tree from the BS tree's code that we saw during class.
@@ -89,8 +89,8 @@ Here is a table of the implemented algorithms, the name of the implementation in
 | `tree_height`| [`tree.py`][tree]      | Done |
 | `minimum`| [`tree.py`][tree]      | Done |
 | `maximum`| [`tree.py`][tree]      | Done |
-| `left_rotate`| [`tree.py`][tree]      | TODO |
-| `right_rotate`| [`tree.py`][tree]      | TODO |
+| `left_rotate`| [`tree.py`][tree]      | Done |
+| `right_rotate`| [`tree.py`][tree]      | Done |
 | `postorder`| [`tree.py`][tree]      | Done |
 | `connected_components`| [`graph.py`][graph]      | Done |<!-- [`graph.py`] --->
 | `mst_prim`| [`graph.py`][graph]      | Done |
