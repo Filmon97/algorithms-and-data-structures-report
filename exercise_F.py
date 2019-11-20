@@ -3,6 +3,7 @@ from utils import (
     evaluate,
     plot_data
 )
+from graph import (RandomGraph)
 
 start = 100
 end = 2100
@@ -11,16 +12,42 @@ offset = 100
 
 def connected_components(n):
     setup = """
-from graph import (RandomGraph,SavedGraph, connected_components)
+from graph import (SavedGraph, connected_components)
 from utils import (np)
 np.random.seed(31415)
-#graph = RandomGraph(list(range({})))
 filename = './graphs/graph'
 graph = SavedGraph(filename+str({}))
 gc.enable()
     """.format(n)
 
     return evaluate(stmt='connected_components(graph)', setup=setup, repeat=10)
+
+#for testing
+#_________________________________________________________________________________________________
+def build_graph():
+    filename = './graphs/graph'
+    for i in range(start,end,offset):
+        RandomGraph(list(range(i))).save_graph(filename+str(i))
+
+def create_graph(n):
+    setup = """
+from graph import (RandomGraph)
+from utils import (np)
+np.random.seed(31415)
+gc.enable()
+    """
+    return evaluate(stmt='graph = RandomGraph(list(range({})))'.format(n), setup=setup, repeat=10)
+
+def load_graph(n):
+    setup = """
+from graph import (SavedGraph)
+from utils import (np)
+np.random.seed(31415)
+filename = './graphs/graph'
+gc.enable()
+    """
+    return evaluate(stmt='graph = SavedGraph(filename+str({}))'.format(n), setup=setup, repeat=10)
+#_________________________________________________________________________________________________
 
 
 def uniform_graph_mst_prim(n):
