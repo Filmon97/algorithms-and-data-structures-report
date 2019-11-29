@@ -10,8 +10,6 @@ from utils import (
 )
 import networkx
 
-# TODO: add some tests
-
 np.random.seed(31415)
 
 

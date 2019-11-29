@@ -24,8 +24,6 @@ import warnings
 warnings.simplefilter('ignore', category=NumbaDeprecationWarning)
 warnings.simplefilter('ignore', category=NumbaPendingDeprecationWarning)
 
-# from memory_profiler import profile
-
 infinity = float('inf')
 
 # Set one time the maximum recursion limit
@@ -102,19 +100,6 @@ def plot_compare(x, y, z, label1, label2, title, xlabel, ylabel, save=None):
         plt.close()
     else:
         plt.show()
-
-
-# Memory Usage
-
-# Decorator
-# append below a function
-# the @profile decorator
-# import the profiler or
-# run in the console
-# python -m memory_profiler example.py
-# Time-based memory usage
-# mprof run <executable>
-# mprof plot
 
 # ______________________________________________________________________________
 # Math function
