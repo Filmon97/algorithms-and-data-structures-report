@@ -78,6 +78,7 @@ def plot_data(x, y, label, title, xlabel, ylabel, save=None):
     plt.title(title)
     plt.legend()
     if save:
+        os.makedirs(os.path.dirname(save), exist_ok=True)
         plt.savefig(save)
         plt.close()
     else:
