@@ -148,12 +148,6 @@ def experiment_a_c_c():
 
 
 if __name__ == "__main__":
-    # experiment_b_c_i_s()
-    # experiment_b_c_q_s()
-    # experiment_w_c_i_s()
-    # experiment_w_c_q_s()
-    # experiment_a_c_i_s()
-    # experiment_a_c_q_s()
     experiment_a_c_c()
     experiment_b_c_c()
     experiment_w_c_c()

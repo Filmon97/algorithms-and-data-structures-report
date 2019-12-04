@@ -10,6 +10,8 @@ start = 100
 end = 2100
 offset = 100
 
+filepath = './images/exercise_A/'
+
 
 def insertion_bst(n):
     setup = """
@@ -108,7 +110,7 @@ def experiment_i_compare():
         times_rbt.append(insertion_rbt(i))
 
     plot_compare(r, times_bst, times_rbt, "BinarySearchTree",
-                 "RedBlackTree", "Insertion", "n", "time")
+                 "RedBlackTree", "Insertion", "n", "time", filepath+'insertion.png')
 
 
 def experiment_s_compare():
@@ -120,11 +122,9 @@ def experiment_s_compare():
         times_rbt.append(search_rbt(i))
 
     plot_compare(r, times_bst, times_rbt, "BinarySearchTree",
-                 "RedBlackTree", "Search", "n", "time")
+                 "RedBlackTree", "Search", "n", "time", filepath+'search.png')
 
 
 if __name__ == "__main__":
-    # experiment_i_bst()
-    # experiment_i_rbt()
     experiment_i_compare()
     experiment_s_compare()

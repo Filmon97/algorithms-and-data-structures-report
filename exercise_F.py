@@ -9,6 +9,8 @@ start = 100
 end = 2100
 offset = 100
 
+filepath = './images/exercise_F/'
+
 
 def connected_components(n):
     setup = """
@@ -22,12 +24,15 @@ gc.enable()
 
     return evaluate(stmt='connected_components(graph)', setup=setup, repeat=10)
 
-#for testing
-#_________________________________________________________________________________________________
+# for testing
+# _________________________________________________________________________________________________
+
+
 def build_graph():
     filename = './graphs/graph'
-    for i in range(start,end,offset):
+    for i in range(start, end, offset):
         RandomGraph(list(range(i))).save_graph(filename+str(i))
+
 
 def create_graph(n):
     setup = """
@@ -38,6 +43,7 @@ gc.enable()
     """
     return evaluate(stmt='graph = RandomGraph(list(range({})))'.format(n), setup=setup, repeat=10)
 
+
 def load_graph(n):
     setup = """
 from graph import (SavedGraph)
@@ -47,7 +53,7 @@ filename = './graphs/graph'
 gc.enable()
     """
     return evaluate(stmt='graph = SavedGraph(filename+str({}))'.format(n), setup=setup, repeat=10)
-#_________________________________________________________________________________________________
+# _________________________________________________________________________________________________
 
 
 def uniform_graph_mst_prim(n):
@@ -69,7 +75,9 @@ def experiment_mst_prim():
     for i in r:
         times.append(uniform_graph_mst_prim(i))
 
-    plot_data(r, times, "Prim", "Minimum Spanning Tree", "n", "time")
+    plot_data(r, times, "Prim", "Minimum Spanning Tree",
+              "n", "time", filepath+'mstprim.png')
+
 
 def experiment_cc():
     r = range(start, end, offset)
@@ -77,9 +85,10 @@ def experiment_cc():
     for i in r:
         times.append(connected_components(i))
 
-    plot_data(r, times, "Connected Components", "Minimum Spanning Tree", "n", "time")
+    plot_data(r, times, "Connected Components", "Minimum Spanning Tree",
+              "n", "time", filepath+'conncomponents.png')
 
 
 if __name__ == "__main__":
-    #experiment_mst_prim()
+    experiment_mst_prim()
     experiment_cc()
