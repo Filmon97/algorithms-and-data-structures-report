@@ -28,11 +28,13 @@ gc.enable()
 # for testing
 # _________________________________________________________________________________________________
 
+
 def format_p(p):
     format_p = '_1_'
     if p < 1:
         format_p = '_0_{}_'.format(int(p*10))
     return format_p
+
 
 def build_graph(filename, p):
     for i in range(start, end, offset):
@@ -97,8 +99,10 @@ def experiment_cc(filename, p):
 
 if __name__ == "__main__":
     filename = './graphs/graph'
-    p = 0.1
     if os.path.exists(filename) is False:
-        build_graph(filename, p)
-    experiment_mst_prim(filename, p)
-    experiment_cc(filename, p)
+        for p in [0.1, 0.5, 1]:
+            build_graph(filename, p)
+            
+    for p in range([0.1, 0.5, 1]):
+        experiment_mst_prim(filename, p)
+        experiment_cc(filename, p)
