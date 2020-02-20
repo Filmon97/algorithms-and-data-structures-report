@@ -1,7 +1,8 @@
 from utils import (
     np,
     evaluate,
-    plot_data
+    plot_data,
+    os
 )
 from graph import (RandomGraph)
 
@@ -12,26 +13,31 @@ offset = 100
 filepath = './images/exercise_F/'
 
 
-def connected_components(n):
+def connected_components(n, filename, p):
     setup = """
 from graph import (SavedGraph, connected_components)
 from utils import (np)
 np.random.seed(31415)
-filename = './graphs/graph'
+filename = {}
 graph = SavedGraph(filename+str({}))
 gc.enable()
-    """.format(n)
+    """.format(filename + '_{}_'.format(p), n)
 
     return evaluate(stmt='connected_components(graph)', setup=setup, repeat=10)
 
 # for testing
 # _________________________________________________________________________________________________
 
+def format_p(p):
+    format_p = '_1_'
+    if p < 1:
+        format_p = '0_{}'.format(int(p*10))
+    return format_p
 
-def build_graph():
-    filename = './graphs/graph'
+def build_graph(filename, p):
     for i in range(start, end, offset):
-        RandomGraph(list(range(i))).save_graph(filename+str(i))
+        RandomGraph(list(range(i)), p).save_graph(
+            filename+format_p(p)+str(i))
 
 
 def create_graph(n):
@@ -44,51 +50,55 @@ gc.enable()
     return evaluate(stmt='graph = RandomGraph(list(range({})))'.format(n), setup=setup, repeat=10)
 
 
-def load_graph(n):
+def load_graph(n, filename):
     setup = """
 from graph import (SavedGraph)
 from utils import (np)
 np.random.seed(31415)
-filename = './graphs/graph'
+filename = {}
 gc.enable()
-    """
+    """.format(filename)
     return evaluate(stmt='graph = SavedGraph(filename+str({}))'.format(n), setup=setup, repeat=10)
 # _________________________________________________________________________________________________
 
 
-def uniform_graph_mst_prim(n):
+def uniform_graph_mst_prim(n, filename, p):
     setup = """
 from graph import (SavedGraph, mst_prim)
 from utils import (np)
-filename = './graphs/graph'
+filename = {1}
 np.random.seed(31415)
-graph = SavedGraph(filename+str({}))
+graph = SavedGraph(filename+str({2}))
 gc.enable()
-    """.format(n)
+    """.format(filename+format_p(p), n)
 
     return evaluate(stmt='mst_prim(graph,graph.nodes()[0])', setup=setup, repeat=10)
 
 
-def experiment_mst_prim():
+def experiment_mst_prim(filename, p):
     r = range(start, end, offset)
     times = []
     for i in r:
-        times.append(uniform_graph_mst_prim(i))
+        times.append(uniform_graph_mst_prim(i, filename, p))
 
-    plot_data(r, times, "Prim", "Minimum Spanning Tree",
+    plot_data(r, times, "Prim", "Minimum Spanning Tree P={}".format(p),
               "n", "time", filepath+'mstprim.png')
 
 
-def experiment_cc():
+def experiment_cc(filename, p):
     r = range(start, end, offset)
     times = []
     for i in r:
-        times.append(connected_components(i))
+        times.append(connected_components(i, filename, p))
 
-    plot_data(r, times, "Connected Components", "Minimum Spanning Tree",
+    plot_data(r, times, "Connected Components P={}".format(p), "Minimum Spanning Tree",
               "n", "time", filepath+'conncomponents.png')
 
 
 if __name__ == "__main__":
-    experiment_mst_prim()
-    experiment_cc()
+    filename = './graphs/graph'
+    p = 1
+    if os.path.exists(filename) is False:
+        build_graph(filename, p)
+    experiment_mst_prim(filename, p)
+    experiment_cc(filename, p)

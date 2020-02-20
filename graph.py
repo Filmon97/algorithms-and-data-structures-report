@@ -13,6 +13,7 @@ from utils import (
 import pickle
 import os
 
+
 class Graph:
 
     def __init__(self, graph_dict=None, directed=True):
@@ -73,13 +74,13 @@ class Graph:
     def save_graph(self, filename):
         """Save the graph object in the filename."""
         os.makedirs(os.path.dirname(filename), exist_ok=True)
-        with open(filename + '.pickle','wb') as handle:
+        with open(filename + '.pickle', 'wb') as handle:
             pickle.dump(self, handle)
 
 
 def SavedGraph(filename):
     """Return a graph object stored in the filename."""
-    with open(filename + '.pickle','rb') as handle:
+    with open(filename + '.pickle', 'rb') as handle:
         return pickle.load(handle)
 
 
@@ -88,7 +89,7 @@ def UndirectedGraph(graph_dict=None):
     return Graph(graph_dict=graph_dict, directed=False)
 
 
-def RandomGraph(nodes=list(np.arange(10)), min_links=2, width=400, height=300,
+def RandomGraph(nodes=list(np.arange(10)), probability=0.1, width=400, height=300,
                 curvature=lambda: np.random.uniform(1.1, 1.5)):
     """Construct a random graph, with the specified nodes, and random links.
     The nodes are laid out randomly on a (width x height) rectangle.
@@ -96,6 +97,7 @@ def RandomGraph(nodes=list(np.arange(10)), min_links=2, width=400, height=300,
     Because inverse links are added, some nodes will have more connections.
     The distance between nodes is the hypotenuse times curvature(),
     where curvature() defaults to a random number between 1.1 and 1.5."""
+    min_links = int(probability*len(nodes))
     g = UndirectedGraph()
     g.locations = {}
     # Build the nodes
