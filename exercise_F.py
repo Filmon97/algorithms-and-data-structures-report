@@ -18,7 +18,7 @@ def connected_components(n, filename, p):
 from graph import (SavedGraph, connected_components)
 from utils import (np)
 np.random.seed(31415)
-filename = {}
+filename = '{}'
 graph = SavedGraph(filename+str({}))
 gc.enable()
     """.format(filename + '_{}_'.format(p), n)
@@ -57,7 +57,7 @@ def load_graph(n, filename):
 from graph import (SavedGraph)
 from utils import (np)
 np.random.seed(31415)
-filename = {}
+filename = '{}'
 gc.enable()
     """.format(filename)
     return evaluate(stmt='graph = SavedGraph(filename+str({}))'.format(n), setup=setup, repeat=10)
@@ -68,9 +68,9 @@ def uniform_graph_mst_prim(n, filename, p):
     setup = """
 from graph import (SavedGraph, mst_prim)
 from utils import (np)
-filename = {1}
+filename = '{}'
 np.random.seed(31415)
-graph = SavedGraph(filename+str({2}))
+graph = SavedGraph(filename+str({}))
 gc.enable()
     """.format(filename+format_p(p), n)
 
@@ -98,11 +98,12 @@ def experiment_cc(filename, p):
 
 
 if __name__ == "__main__":
+    filepath = './graphs/'
     filename = './graphs/graph'
-    if os.path.exists(filename) is False:
+    if os.path.exists(filepath) is False:
         for p in [0.1, 0.5, 1]:
             build_graph(filename, p)
 
-    for p in range([0.1, 0.5, 1]):
+    for p in [0.1, 0.5, 1]:
         experiment_mst_prim(filename, p)
         experiment_cc(filename, p)
