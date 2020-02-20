@@ -31,7 +31,7 @@ gc.enable()
 def format_p(p):
     format_p = '_1_'
     if p < 1:
-        format_p = '0_{}_'.format(int(p*10))
+        format_p = '_0_{}_'.format(int(p*10))
     return format_p
 
 def build_graph(filename, p):
