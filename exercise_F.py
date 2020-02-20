@@ -7,7 +7,7 @@ from utils import (
 from graph import (RandomGraph)
 
 start = 100
-end = 2100
+end = 1500
 offset = 100
 
 filepath = './images/exercise_F/'
@@ -84,7 +84,7 @@ def experiment_mst_prim(filename, p):
         times.append(uniform_graph_mst_prim(i, filename, p))
 
     plot_data(r, times, "Prim", "Minimum Spanning Tree P={}".format(p),
-              "n", "time", filepath+'mstprim.png')
+              "n", "time", filepath+format_p(p)+'mstprim.png')
 
 
 def experiment_cc(filename, p):
@@ -94,7 +94,7 @@ def experiment_cc(filename, p):
         times.append(connected_components(i, filename, p))
 
     plot_data(r, times, "Connected Components P={}".format(p), "Minimum Spanning Tree",
-              "n", "time", filepath+'conncomponents.png')
+              "n", "time", filepath+format_p(p)+'conncomponents.png')
 
 
 if __name__ == "__main__":
@@ -102,7 +102,7 @@ if __name__ == "__main__":
     if os.path.exists(filename) is False:
         for p in [0.1, 0.5, 1]:
             build_graph(filename, p)
-            
+
     for p in range([0.1, 0.5, 1]):
         experiment_mst_prim(filename, p)
         experiment_cc(filename, p)
