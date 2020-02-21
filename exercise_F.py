@@ -98,9 +98,9 @@ def experiment_cc(filename, p):
 
 
 if __name__ == "__main__":
-    filepath = './graphs/'
+    filepath_x = './graphs/'
     filename = './graphs/graph'
-    if os.path.exists(filepath) is False:
+    if os.path.exists(filepath_x) is False:
         for p in [0.1, 0.5, 1]:
             build_graph(filename, p)
 
