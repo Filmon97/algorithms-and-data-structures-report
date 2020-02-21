@@ -21,7 +21,7 @@ np.random.seed(31415)
 filename = '{}'
 graph = SavedGraph(filename+str({}))
 gc.enable()
-    """.format(filename + '_{}_'.format(p), n)
+    """.format(filename + format_p(p), n)
 
     return evaluate(stmt='connected_components(graph)', setup=setup, repeat=10)
 
