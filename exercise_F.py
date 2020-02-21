@@ -93,7 +93,7 @@ def experiment_cc(filename, p):
     for i in r:
         times.append(connected_components(i, filename, p))
 
-    plot_data(r, times, "Connected Components P={}".format(p), "Minimum Spanning Tree",
+    plot_data(r, times, "Connected Components", "Connected Components P={}".format(p),
               "n", "time", filepath+format_p(p)+'conncomponents.png')
 
 
